@@ -2,10 +2,19 @@ import React, { useEffect, useState, useRef } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../Config';
 import Axios from 'axios';
 import './ThisMonthFoods.css';
+import './Swiper.css';
 import XMLParser from 'react-xml-parser';
 import FoodCard from './FoodCard';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-function ThisMonthFoods() {
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+
+import SwiperCore, { EffectCoverflow, Pagination } from 'swiper';
+
+SwiperCore.use([EffectCoverflow, Pagination]);
+
+function ThisMonthFoods(props) {
   const [monthFoodList, setMonthFoodList] = useState([]);
   const storageMethodCounter = useRef(0);
 
@@ -14,8 +23,8 @@ function ThisMonthFoods() {
     let url = 'monthFdmtLst';
     Axios.post(url, null, {
       params: {
-        thisYear: '2015',
-        thisMonth: '09',
+        thisYear: '2016',
+        thisMonth: props.month < 10 ? '0' + props.month : '' + props.month,
         apiKey: API_KEY,
       },
     })
@@ -91,15 +100,66 @@ function ThisMonthFoods() {
   }
 
   return (
-    <div className='ThisMonthFoods'>
-      <div className='container'>
+    // <div className='ThisMonthFoods'>
+    //   <div className='container'>
+    //     {Array.isArray(monthFoodList) &&
+    //       monthFoodList.map((item) => {
+    //         return (
+    //           <FoodCard
+    //             monthFood={item}
+    //             month={props.month}
+    //             key={item.cntntsNo}
+    //           />
+    //         );
+    //       })}
+    //     {/* <FoodCard monthFoodList={monthFoodList} /> */}
+    //   </div>
+    // </div>
+
+    <section>
+      <Swiper
+        effect={'coverflow'}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={'auto'}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+      >
         {Array.isArray(monthFoodList) &&
           monthFoodList.map((item) => {
-            return <FoodCard monthFood={item} key={item.cntntsNo}/>;
+            return (
+              <SwiperSlide>
+                <FoodCard
+                  monthFood={item}
+                  month={props.month}
+                  key={item.cntntsNo}
+                />
+              </SwiperSlide>
+            );
           })}
-        {/* <FoodCard monthFoodList={monthFoodList} /> */}
-      </div>
-    </div>
+        {/* <img src='https://swiperjs.com/demos/images/nature-4.jpg' /> */}
+        {/* <SwiperSlide>
+          <img src='https://swiperjs.com/demos/images/nature-5.jpg' />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src='https://swiperjs.com/demos/images/nature-6.jpg' />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src='https://swiperjs.com/demos/images/nature-7.jpg' />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src='https://swiperjs.com/demos/images/nature-8.jpg' />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src='https://swiperjs.com/demos/images/nature-9.jpg' />
+        </SwiperSlide> */}
+      </Swiper>
+    </section>
   );
 }
 
