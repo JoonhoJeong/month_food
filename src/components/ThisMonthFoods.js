@@ -6,13 +6,7 @@ import XMLParser from 'react-xml-parser';
 import FoodCard from './FoodCard';
 
 function ThisMonthFoods() {
-  const [monthFoodList, setMonthFoodList] = useState({
-    fdmtNm: null,
-    rtnFileCours: null,
-    rtnStreFileNm: null,
-    cntntsNo: null,
-    storageMethod: null,
-  });
+  const [monthFoodList, setMonthFoodList] = useState([]);
   const storageMethodCounter = useRef(0);
 
   useEffect(() => {
@@ -100,8 +94,8 @@ function ThisMonthFoods() {
     <div className='ThisMonthFoods'>
       <div className='container'>
         {Array.isArray(monthFoodList) &&
-          monthFoodList.map((item, index) => {
-            return <FoodCard monthFood={item} />;
+          monthFoodList.map((item) => {
+            return <FoodCard monthFood={item} key={item.cntntsNo}/>;
           })}
         {/* <FoodCard monthFoodList={monthFoodList} /> */}
       </div>
