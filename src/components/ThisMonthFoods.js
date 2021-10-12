@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { API_URL, API_KEY, IMAGE_BASE_URL } from '../Config';
 import Axios from 'axios';
 import './ThisMonthFoods.css';
 import XMLParser from 'react-xml-parser';
+import FoodCard from './FoodCard';
 
 function ThisMonthFoods() {
   const [monthFoodList, setMonthFoodList] = useState({
@@ -12,7 +13,8 @@ function ThisMonthFoods() {
     cntntsNo: null,
     storageMethod: null,
   });
-  const [storageMethod, setStorageMethod] = useState(null);
+  const storageMethodCounter = useRef(0);
+
   useEffect(() => {
     // let monthFoodsURL = API_URL + 'monthFdmtLst';
     let url = 'monthFdmtLst';
@@ -20,7 +22,7 @@ function ThisMonthFoods() {
       params: {
         thisYear: '2015',
         thisMonth: '09',
-        apiKey: '20210927YDGGO5VZ65DA9GRKISG',
+        apiKey: API_KEY,
       },
     })
       .then((response) => {
@@ -62,7 +64,7 @@ function ThisMonthFoods() {
       Axios.post(url, null, {
         params: {
           cntntsNo: item.cntntsNo,
-          apiKey: '20210927YDGGO5VZ65DA9GRKISG',
+          apiKey: API_KEY,
         },
       })
         .then((response) => {
@@ -71,7 +73,13 @@ function ThisMonthFoods() {
           let cstdyMthDtl = xml.getElementsByTagName('cstdyMthDtl');
           // console.log(cstdyMthDtl[0].value.split('■ 손질법')[0]);
           arr[index].storageMethod = cstdyMthDtl[0].value.split('■ 손질법')[0];
-          setMonthFoodList(arr);
+          console.log('arr', arr);
+          console.log('arr.length');
+          storageMethodCounter.current++;
+          if (storageMethodCounter.current === arr.length) {
+            storageMethodCounter.current = 0;
+            setMonthFoodList(arr);
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -79,8 +87,8 @@ function ThisMonthFoods() {
     });
   };
 
-  console.log(monthFoodList);
-  console.log(monthFoodList[0]);
+  console.log('monthFoodList', monthFoodList, Array.isArray(monthFoodList));
+  console.log('monthFoodList[0]', monthFoodList[0]);
   // console.log(monthFoodList[0].storageMethod);
   if (monthFoodList[0]) {
     console.log(
@@ -91,24 +99,11 @@ function ThisMonthFoods() {
   return (
     <div className='ThisMonthFoods'>
       <div className='container'>
-        <div className='box'>
-          <div className='imgBx'>
-            {Array.isArray(monthFoodList) && (
-              <img
-                src={`https://www.nongsaro.go.kr/${monthFoodList[0].rtnFileCours}/${monthFoodList[0].rtnStreFileNm}`}
-                alt='img1'
-              />
-              // <img src='https://picsum.photos/200' alt='display image' />
-            )}
-          </div>
-          <div className='content'>
-            <h3>{Array.isArray(monthFoodList) && monthFoodList[0].fdmtNm}</h3>
-            <p>
-              {Array.isArray(monthFoodList) && monthFoodList[0].storageMethod}
-              {/* hello */}
-            </p>
-          </div>
-        </div>
+        {Array.isArray(monthFoodList) &&
+          monthFoodList.map((item, index) => {
+            return <FoodCard monthFood={item} />;
+          })}
+        {/* <FoodCard monthFoodList={monthFoodList} /> */}
       </div>
     </div>
   );
