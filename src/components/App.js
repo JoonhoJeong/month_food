@@ -6,18 +6,18 @@ import { Route, Switch } from 'react-router-dom';
 function App() {
   const month = 11;
   return (
-    <div className='App'>
+    <div className="App">
       {/* <MonthInfo /> */}
       {/* <ThisMonthFoods /> */}
       {/* <ThisMonthRecipes /> */}
 
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/month_food">
           <ThisMonthFoods month={month} />
         </Route>
         <Route
           exact
-          path='/RecipeList/:foodStr/:month'
+          path="/RecipeList/:foodStr/:month"
           component={RecipeList}
         />
         {/* <RecipeList month={month} /> */}

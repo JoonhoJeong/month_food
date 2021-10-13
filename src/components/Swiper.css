@@ -6,23 +6,32 @@ section {
   justify-content: center;
   align-items: center;
   background: #2196f3;
+  background: black;
   overflow: hidden;
-}
-
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 320px;
-  height: 300px;
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+
+.swiper-pagination-bullet {
+  width: 18px;
+  height: 18px;
+  background: transparent;
+  border: 2px solid black;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  width: 50px;
+  transition: width 0.5s;
+  border-radius: 10px;
+  background: black;
+  border: 2px solid transparent;
 }
