@@ -3,7 +3,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "./Swiper.css";
 
-import { /* API_URL, */ API_KEY, /* IMAGE_BASE_URL */ } from "../Config";
+import { /* API_URL, */ API_KEY /* IMAGE_BASE_URL */ } from "../Config";
 import Axios from "axios";
 import "./ThisMonthFoods.css";
 import XMLParser from "react-xml-parser";
@@ -23,7 +23,7 @@ function ThisMonthFoods(props) {
     let url = "monthFdmtLst";
     Axios.post(url, null, {
       params: {
-        thisYear: "2016",
+        thisYear: props.year,
         thisMonth: props.month < 10 ? "0" + props.month : "" + props.month,
         apiKey: API_KEY,
       },

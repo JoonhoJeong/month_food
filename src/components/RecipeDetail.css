@@ -1,0 +1,176 @@
+.recipeDetailMain {
+  flex: 1 1 0%;
+
+  animation: 0.5s ease 0s 1 normal forwards running fadeInAnimation;
+  max-width: 1440px;
+  margin: 0px auto;
+}
+.recipeDetailMain .ImageBox {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+}
+.recipeDetailMain .ImageBox h1 {
+  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  color: #000;
+}
+.recipeDetailMain .ImageBox img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: auto;
+  display: block;
+  /* width: 0; */
+  /* height: 0; */
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+.ingredient {
+  width: 100%;
+}
+.ingredient h1 {
+  width: calc(100% - 28px);
+  margin: 0px 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #937062;
+  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: start;
+}
+.ingredient .content {
+  width: 100%;
+  padding: 24px 0px;
+}
+.ingredient .content .ImageBox {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+}
+.ingredient .content .ImageBox img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: auto;
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+.igroups {
+  list-style: none;
+  padding: 40px 14px 0px;
+}
+.igroups .personNm {
+  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.igroups .ginredientDetail {
+  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: -0.5px;
+  width: 100%;
+  display: inline-grid;
+  /* place-items: center; */
+  /* -webkit-box-align: center; */
+  /* grid-template-columns: 1fr 1fr; */
+  gap: 8px 59px;
+  color: #757575;
+}
+
+.recipeStep {
+  width: 100%;
+}
+.recipeStep h1 {
+  width: calc(100% - 28px);
+  margin: 0px 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #937062;
+  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: start;
+}
+.recipeStep .content {
+  width: 100%;
+  padding: 24px 0px;
+}
+.recipeStep .content .ImageBox {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+}
+.recipeStep .content .ImageBox img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: auto;
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+.step {
+  font-family: "Noto Serif KR", serif, "Exo", Arial;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: start;
+  margin: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.howToCook {
+  margin-bottom: 10px;
+  color: #757575;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  white-space: break-spaces;
+}
+.stepBox {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
