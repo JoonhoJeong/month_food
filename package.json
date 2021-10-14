@@ -42,6 +42,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://api.nongsaro.go.kr/service/monthFd/",
-  "homepage": "https://joonhojeong.github.io/month_food/"
+  "proxy": "http://api.nongsaro.go.kr/service/monthFd/"
 }

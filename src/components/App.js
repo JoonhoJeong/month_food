@@ -1,6 +1,7 @@
 import './App.css';
 import ThisMonthFoods from './ThisMonthFoods';
 import RecipeList from './RecipeList';
+import RecipeDetail from './RecipeDetail';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -10,19 +11,19 @@ function App() {
       {/* <MonthInfo /> */}
       {/* <ThisMonthFoods /> */}
       {/* <ThisMonthRecipes /> */}
-
+      {/* "name": "month_food", */}
       <Switch>
-        <Route exact path="/month_food">
+        <Route exact path="/">
           <ThisMonthFoods month={month} />
         </Route>
-        <Route
-          exact
-          path="/RecipeList/:foodStr/:month"
-          component={RecipeList}
-        />
-        {/* <RecipeList month={month} /> */}
-        {/* </Route> */}
-        {/* <Route exact path='/register' component={Auth(RegisterPage, false)} /> */}
+        <Route exact path="/RecipeList">
+          <RecipeList month={month} />
+        </Route>
+        <Route exact path="/RecipeDetail/:cntntsNo" component={RecipeDetail} />
+        {/* cntntsNo/ */}
+        {/* <Route exact path="/RecipeDetail">
+          <RecipeDetail />
+        </Route> */}
       </Switch>
     </div>
   );
