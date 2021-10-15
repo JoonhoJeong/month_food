@@ -4,6 +4,7 @@ import { API_KEY, IMAGE_BASE_URL } from "../Config";
 import Axios from "axios";
 import XMLParser from "react-xml-parser";
 import "./RecipeDetail.css";
+import NutritionTable from "./NutritionTable";
 
 function RecipeDetail(props) {
   let cntntsNo = props.match.params.cntntsNo;
@@ -34,7 +35,7 @@ function RecipeDetail(props) {
         items.map((item) => {
           howToCook = item
             .getElementsByTagName("ckngMthInfo")[0]
-            .value.replace(/ >/g, "")
+            .value.replace(/ >|\r\n/g, "")
             .split(/[0-9][.]/); //조리 방법
           imagesPath = item
             .getElementsByTagName("rtnFileCours")[0]
@@ -115,13 +116,16 @@ function RecipeDetail(props) {
     <>
       {recipeDetail && (
         <div className="recipeDetailMain">
-          <div className="ImageBox">
-            <img
-              src={`${IMAGE_BASE_URL}${recipeDetail.imagesPath[0]}/${recipeDetail.imagesName[0]}`}
-              alt="recipe main"
-            />
-            <h1>{recipeDetail.fdNm}</h1>
+          <div>
+            <div className="ImageBox">
+              <img
+                src={`${IMAGE_BASE_URL}${recipeDetail.imagesPath[0]}/${recipeDetail.imagesName[0]}`}
+                alt="recipe main"
+              />
+              <h1>{recipeDetail.fdNm}</h1>
+            </div>
           </div>
+          <NutritionTable recipeDetail={recipeDetail} />
           <div className="ingredient">
             <h1>재료</h1>
             <div className="content">

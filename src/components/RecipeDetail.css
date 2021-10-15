@@ -1,8 +1,7 @@
 .recipeDetailMain {
   flex: 1 1 0%;
-
   animation: 0.5s ease 0s 1 normal forwards running fadeInAnimation;
-  max-width: 1440px;
+  max-width: 652px;
   margin: 0px auto;
 }
 .recipeDetailMain .ImageBox {
@@ -11,6 +10,7 @@
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
+  padding-bottom: 10px;
   margin: 0;
 }
 .recipeDetailMain .ImageBox h1 {
@@ -20,6 +20,9 @@
   line-height: 28px;
   letter-spacing: 0px;
   color: #000;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 10px 14px;
+  padding-bottom: 8px;
 }
 .recipeDetailMain .ImageBox img {
   /* position: absolute; */
@@ -162,7 +165,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 .howToCook {
-  margin-bottom: 10px;
+  margin: 0px 14px 10px 14px;
   color: #757575;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
@@ -173,4 +176,66 @@
 .stepBox {
   margin-top: 10px;
   margin-bottom: 50px;
+}
+.nutritionGroup {
+  display: grid;
+  grid-area: text / text / text / text;
+  row-gap: 24px;
+  padding: 40px 14px 0px;
+  list-style: none;
+}
+.title03 {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.title03 h1 {
+  font-family: "Noto Serif KR", serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0px;
+  text-align: start;
+}
+.title03 h2 {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+}
+.nutritionGroup ul {
+  padding: 16px 0px;
+  display: grid;
+  row-gap: 8px;
+}
+.nutritionGroup li {
+  /* padding: 16px 0px;
+  display: grid;
+  row-gap: 8px; */
+  list-style: none;
+}
+.text_Description02 {
+  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.5px;
+  width: 100%;
+  display: inline-grid;
+  place-items: center;
+  -webkit-box-align: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 59px;
+}
+.text_Description02 div:first-of-type {
+  justify-self: start;
+  color: #111111;
+}
+.text_Description02 div:last-of-type {
+  justify-self: end;
+  color: #757575;
 }
