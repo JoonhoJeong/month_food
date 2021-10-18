@@ -1,26 +1,26 @@
-import React from "react";
-import { /* API_URL, API_KEY, */ IMAGE_BASE_URL } from "../Config";
+import React from 'react';
+import { /* API_URL, API_KEY, */ IMAGE_BASE_URL } from '../Config';
+import './FoodCard.css';
 
 function FoodCard(props) {
   console.log(props);
   return (
-    <div className="food_card">
-      <div className="imgBx">
-        <img
-          src={`${IMAGE_BASE_URL}${props.monthFood.rtnFileCours}/${props.monthFood.rtnStreFileNm}`}
-          alt={props.monthFood.fdmtNm}
-        />
-      </div>
-      <div className="content">
+    <div className='foodCard'>
+      <img
+        src={`${IMAGE_BASE_URL}${props.monthFood.rtnFileCours}/${props.monthFood.rtnStreFileNm}`}
+        alt={props.monthFood.fdmtNm}
+      />
+      <div className='shadow'></div>
+      <div className='foodName'>
         <h3>{props.monthFood.fdmtNm}</h3>
-        <p>
+        {/* <p>
           {props.monthFood.storageMethod.split("\r\n").map((line, index) => (
             <span key={index}>
               {line}
               <br />
             </span>
           ))}
-        </p>
+        </p> */}
       </div>
     </div>
   );
