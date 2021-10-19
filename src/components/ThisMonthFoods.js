@@ -1,22 +1,22 @@
-import React, { useEffect, useState, useRef } from 'react';
-import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
-import './Swiper.css';
+import React, { useEffect, useState, useRef } from "react";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import "./Swiper.css";
 
-import { /* API_URL, */ API_KEY /* IMAGE_BASE_URL */ } from '../Config';
-import Axios from 'axios';
-import './ThisMonthFoods.css';
-import XMLParser from 'react-xml-parser';
-import FoodCard from './FoodCard';
+import { /* API_URL, */ API_KEY /* IMAGE_BASE_URL */ } from "../Config";
+import Axios from "axios";
+import "./ThisMonthFoods.css";
+import XMLParser from "react-xml-parser";
+import FoodCard from "./FoodCard";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import SwiperCore, {
   EffectCoverflow,
   EffectFade,
   Pagination,
   Autoplay,
-} from 'swiper';
+} from "swiper";
 
 SwiperCore.use([EffectCoverflow, EffectFade, Pagination, Autoplay]);
 
@@ -27,42 +27,42 @@ function ThisMonthFoods(props) {
 
   useEffect(() => {
     // let monthFoodsURL = API_URL + 'monthFdmtLst';
-    let url = 'monthFdmtLst';
+    let url = "monthFdmtLst";
     let arr = [];
     props.year.map((item, index) => {
       Axios.post(url, null, {
         params: {
           thisYear: props.year[index],
-          thisMonth: props.month < 10 ? '0' + props.month : '' + props.month,
+          thisMonth: props.month < 10 ? "0" + props.month : "" + props.month,
           apiKey: API_KEY,
         },
       })
         .then((response) => {
           yearCounter.current++;
           let xml = new XMLParser().parseFromString(response.data);
-          let items = xml.getElementsByTagName('item');
-          console.log('items', yearCounter.current, items);
+          let items = xml.getElementsByTagName("item");
+          console.log("items", yearCounter.current, items);
           items.map((item) =>
             arr.push({
               fdmtNm: item
-                .getElementsByTagName('fdmtNm')[0]
-                .value.replace(/ >/g, ''),
+                .getElementsByTagName("fdmtNm")[0]
+                .value.replace(/ >/g, ""),
               rtnFileCours: item
-                .getElementsByTagName('rtnFileCours')[0]
-                .value.replace(/ >/g, '')
-                .split('|')[0],
+                .getElementsByTagName("rtnFileCours")[0]
+                .value.replace(/ >/g, "")
+                .split("|")[0],
               rtnStreFileNm: item
-                .getElementsByTagName('rtnStreFileNm')[0]
-                .value.replace(/ >/g, '')
-                .split('|')[0],
+                .getElementsByTagName("rtnStreFileNm")[0]
+                .value.replace(/ >/g, "")
+                .split("|")[0],
               cntntsNo: item
-                .getElementsByTagName('cntntsNo')[0]
-                .value.replace(/ >/g, ''),
+                .getElementsByTagName("cntntsNo")[0]
+                .value.replace(/ >/g, ""),
             })
           );
           // getMonthFoodDetail(arr);
           if (yearCounter.current === props.year.length) {
-            console.log('jjh1', yearCounter.current, props.year.length, arr);
+            console.log("jjh1", yearCounter.current, props.year.length, arr);
             setMonthFoodList(arr);
           }
         })
@@ -73,7 +73,7 @@ function ThisMonthFoods(props) {
   }, [props.month]);
 
   const getMonthFoodDetail = (arr) => {
-    let url = 'monthFdmtDtl';
+    let url = "monthFdmtDtl";
     // console.log('monthFoodList? ', monthFoodList.length);
 
     arr.forEach((item, index) => {
@@ -87,11 +87,11 @@ function ThisMonthFoods(props) {
         .then((response) => {
           let xml = new XMLParser().parseFromString(response.data);
           // console.log(xml);
-          let cstdyMthDtl = xml.getElementsByTagName('cstdyMthDtl');
+          let cstdyMthDtl = xml.getElementsByTagName("cstdyMthDtl");
           // console.log(cstdyMthDtl[0].value.split('■ 손질법')[0]);
-          arr[index].storageMethod = cstdyMthDtl[0].value.split('■ 손질법')[0];
-          console.log('arr', arr);
-          console.log('arr.length');
+          arr[index].storageMethod = cstdyMthDtl[0].value.split("■ 손질법")[0];
+          console.log("arr", arr);
+          console.log("arr.length");
           storageMethodCounter.current++;
           if (storageMethodCounter.current === arr.length) {
             storageMethodCounter.current = 0;
@@ -104,8 +104,8 @@ function ThisMonthFoods(props) {
     });
   };
 
-  console.log('monthFoodList', monthFoodList, Array.isArray(monthFoodList));
-  console.log('monthFoodList[0]', monthFoodList[0]);
+  console.log("monthFoodList", monthFoodList, Array.isArray(monthFoodList));
+  console.log("monthFoodList[0]", monthFoodList[0]);
   // console.log(monthFoodList[0].storageMethod);
   if (monthFoodList[0]) {
     console.log(
@@ -116,7 +116,7 @@ function ThisMonthFoods(props) {
   return (
     <section>
       <Swiper
-        effect={'coverflow'}
+        effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
         slidesPerView={1}

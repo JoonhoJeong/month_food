@@ -1,13 +1,13 @@
-import React from 'react';
-import './RecipeCard.css';
-import { IMAGE_BASE_URL } from '../Config';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./RecipeCard.css";
+import { IMAGE_BASE_URL } from "../Config";
+import { Link } from "react-router-dom";
 
 class CardHeader extends React.Component {
   render() {
     const { image } = this.props;
     var style = {
-      backgroundImage: 'url(' + image + ')',
+      backgroundImage: "url(" + image + ")",
     };
     return (
       <header style={style} id={image} className="card-header">
@@ -33,7 +33,7 @@ class CardBody extends React.Component {
       <div className="card-body">
         <h3>{this.props.title}</h3>
 
-        <p className="body-content">{this.props.text}</p>
+        {/* <p className="body-content">{this.props.text}</p> */}
 
         {/* <Button /> */}
       </div>
@@ -45,7 +45,7 @@ function RecipeCard(props) {
   return (
     <Link
       to={`/RecipeDetail/${props.recipe.cntntsNo}`}
-      style={{ textDecoration: 'none', color: 'black' }}
+      style={{ textDecoration: "none", color: "black" }}
     >
       <article className="card">
         <CardHeader

@@ -10,16 +10,15 @@
   overflow: hidden;
 }
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-}
-
 .swiper-slide img {
   display: block;
   width: 100%;
 }
 */
+.swiper-slide {
+  height: 473px;
+}
+
 .swiper-pagination-bullet-active {
   background: #937062;
 }

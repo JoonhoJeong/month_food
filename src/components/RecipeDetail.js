@@ -115,8 +115,8 @@ function RecipeDetail(props) {
   return (
     <>
       {recipeDetail && (
-        <div className="recipeDetailMain">
-          <div>
+        <>
+          <div className="mainBox">
             <div className="ImageBox">
               <img
                 src={`${IMAGE_BASE_URL}${recipeDetail.imagesPath[0]}/${recipeDetail.imagesName[0]}`}
@@ -125,61 +125,63 @@ function RecipeDetail(props) {
               <h1>{recipeDetail.fdNm}</h1>
             </div>
           </div>
-          <NutritionTable recipeDetail={recipeDetail} />
-          <div className="ingredient">
-            <h1>재료</h1>
-            <div className="content">
-              <div className="ImageBox">
-                <img
-                  src={`${IMAGE_BASE_URL}${recipeDetail.imagesPath[1]}/${recipeDetail.imagesName[1]}`}
-                  alt="recipe ingrendient"
-                />
+          <div className="recipeDetailMain">
+            <NutritionTable recipeDetail={recipeDetail} />
+            <div className="ingredient">
+              <h1>재료</h1>
+              <div className="content">
+                <div className="ImageBox">
+                  <img
+                    src={`${IMAGE_BASE_URL}${recipeDetail.imagesPath[1]}/${recipeDetail.imagesName[1]}`}
+                    alt="recipe ingrendient"
+                  />
+                </div>
+                <ul className="igroups">
+                  {recipeDetail.ingredientStr.map((item, index) => {
+                    if (index === 0) {
+                      return (
+                        <li className="personNm" key={index}>
+                          {recipeDetail.ingredientStr[index]}
+                        </li>
+                      );
+                    } else {
+                      return (
+                        <li className="ginredientDetail" key={index}>
+                          {recipeDetail.ingredientStr[index]}
+                        </li>
+                      );
+                    }
+                  })}
+                </ul>
               </div>
-              <ul className="igroups">
-                {recipeDetail.ingredientStr.map((item, index) => {
-                  if (index === 0) {
+            </div>
+            <div className="recipeStep">
+              <h1>레시피</h1>
+              <div className="content">
+                {recipeDetail.howToCook.map((item, index) => {
+                  if (recipeDetail.howToCook[index + 1]) {
                     return (
-                      <li className="personNm" key={index}>
-                        {recipeDetail.ingredientStr[index]}
-                      </li>
-                    );
-                  } else {
-                    return (
-                      <li className="ginredientDetail" key={index}>
-                        {recipeDetail.ingredientStr[index]}
-                      </li>
+                      <div className="stepBox">
+                        <div className="ImageBox">
+                          <img
+                            src={`${IMAGE_BASE_URL}${
+                              recipeDetail.imagesPath[index + 2]
+                            }/${recipeDetail.imagesName[index + 2]}`}
+                            alt="recipe ingrendient"
+                          />
+                        </div>
+                        <div className="step">Step {index + 1}</div>
+                        <div className="howToCook">
+                          {recipeDetail.howToCook[index + 1]}
+                        </div>
+                      </div>
                     );
                   }
                 })}
-              </ul>
+              </div>
             </div>
           </div>
-          <div className="recipeStep">
-            <h1>레시피</h1>
-            <div className="content">
-              {recipeDetail.howToCook.map((item, index) => {
-                if (recipeDetail.howToCook[index + 1]) {
-                  return (
-                    <div className="stepBox">
-                      <div className="ImageBox">
-                        <img
-                          src={`${IMAGE_BASE_URL}${
-                            recipeDetail.imagesPath[index + 2]
-                          }/${recipeDetail.imagesName[index + 2]}`}
-                          alt="recipe ingrendient"
-                        />
-                      </div>
-                      <div className="step">Step {index + 1}</div>
-                      <div className="howToCook">
-                        {recipeDetail.howToCook[index + 1]}
-                      </div>
-                    </div>
-                  );
-                }
-              })}
-            </div>
-          </div>
-        </div>
+        </>
       )}
     </>
   );
