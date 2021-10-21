@@ -9,20 +9,20 @@ function App() {
   const month = 11;
   const year = [2017, 2018, 2019];
   return (
-    <div className='App'>
+    <div className="App">
       {/* <MonthInfo /> */}
       {/* <ThisMonthFoods /> */}
       {/* <ThisMonthRecipes /> */}
       {/* "name": "month_food", */}
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
           {/* <ThisMonthFoods month={month} year={year} /> */}
-          <MainPage />
+          <MainPage month={month} year={year} />
         </Route>
         {/* <Route exact path='/RecipeList'>
           <RecipeList month={month} year={year} />
         </Route> */}
-        <Route exact path='/RecipeDetail/:cntntsNo' component={RecipeDetail} />
+        <Route exact path="/RecipeDetail/:cntntsNo" component={RecipeDetail} />
         {/* cntntsNo/ */}
         {/* <Route exact path="/RecipeDetail">
           <RecipeDetail />
