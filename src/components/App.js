@@ -39,26 +39,22 @@ function App() {
   console.log('localstorage', window.localStorage);
   console.log('sessionstorage', window.sessionStorage);
   return (
-    <div className="App">
-      {/* <MonthInfo /> */}
-      {/* <ThisMonthFoods /> */}
-      {/* <ThisMonthRecipes /> */}
-      {/* "name": "month_food", */}
+    <div className='App'>
       <NavBar setMonth={setMonth} month={month} />
       <Switch>
-        <Route exact path="/">
+        <Route exact path='/'>
           {/* <ThisMonthFoods month={month} year={year} /> */}
           <MainPage month={month} year={year} />
         </Route>
         {/* <Route exact path='/RecipeList'>
           <RecipeList month={month} year={year} />
         </Route> */}
-        <Route exact path="/RecipeDetail/:cntntsNo" component={RecipeDetail} />
+        <Route exact path='/RecipeDetail/:cntntsNo' component={RecipeDetail} />
         {/* cntntsNo/ */}
         {/* <Route exact path="/RecipeDetail">
           <RecipeDetail />
         </Route> */}
-        <Route exact path="/login">
+        <Route exact path='/login'>
           <LoginPage />
         </Route>
       </Switch>

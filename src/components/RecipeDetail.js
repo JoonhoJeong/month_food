@@ -223,19 +223,19 @@ function RecipeDetail(props) {
     speechMsg.text = text;
 
     // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
-    // window.speechSynthesis.speak(speechMsg);
+    window.speechSynthesis.speak(speechMsg);
 
-    exec('ls -la', (error, stdout, stderr) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-    });
+    // exec('ls -la', (error, stdout, stderr) => {
+    //   if (error) {
+    //     console.log(`error: ${error.message}`);
+    //     return;
+    //   }
+    //   if (stderr) {
+    //     console.log(`stderr: ${stderr}`);
+    //     return;
+    //   }
+    //   console.log(`stdout: ${stdout}`);
+    // });
   };
 
   const nextStep = () => {
@@ -280,37 +280,37 @@ function RecipeDetail(props) {
           >
             hello
           </div>
-          <div className="mainBox">
-            <div className="ImageBox">
+          <div className='mainBox'>
+            <div className='ImageBox'>
               <img
                 src={`${IMAGE_BASE_URL}${recipeDetail.imagesPath[0]}/${recipeDetail.imagesName[0]}`}
-                alt="recipe main"
+                alt='recipe main'
               />
               <h1>{recipeDetail.fdNm}</h1>
             </div>
           </div>
-          <div className="recipeDetailMain">
+          <div className='recipeDetailMain'>
             <NutritionTable recipeDetail={recipeDetail} />
-            <div className="ingredient">
+            <div className='ingredient'>
               <h1>재료</h1>
-              <div className="content">
-                <div className="ImageBox">
+              <div className='content'>
+                <div className='ImageBox'>
                   <img
                     src={`${IMAGE_BASE_URL}${recipeDetail.imagesPath[1]}/${recipeDetail.imagesName[1]}`}
-                    alt="recipe ingrendient"
+                    alt='recipe ingrendient'
                   />
                 </div>
-                <ul className="igroups">
+                <ul className='igroups'>
                   {recipeDetail.ingredientStr.map((item, index) => {
                     if (index === 0) {
                       return (
-                        <li className="personNm" key={index}>
+                        <li className='personNm' key={index}>
                           {recipeDetail.ingredientStr[index]}
                         </li>
                       );
                     } else {
                       return (
-                        <li className="ginredientDetail" key={index}>
+                        <li className='ginredientDetail' key={index}>
                           {recipeDetail.ingredientStr[index]}
                         </li>
                       );
@@ -319,27 +319,27 @@ function RecipeDetail(props) {
                 </ul>
               </div>
             </div>
-            <div className="recipeStep">
+            <div className='recipeStep'>
               <h1>레시피</h1>
-              <div className="content">
+              <div className='content'>
                 {recipeDetail.howToCook.map((item, index) => {
                   if (recipeDetail.howToCook[index + 1]) {
                     return (
                       <div
-                        className="stepBox"
+                        className='stepBox'
                         id={`step${index + 1}`}
                         ref={(el) => (stepRef.current[index + 1] = el)}
                       >
-                        <div className="ImageBox">
+                        <div className='ImageBox'>
                           <img
                             src={`${IMAGE_BASE_URL}${
                               recipeDetail.imagesPath[index + 2]
                             }/${recipeDetail.imagesName[index + 2]}`}
-                            alt="recipe ingrendient"
+                            alt='recipe ingrendient'
                           />
                         </div>
-                        <div className="step">Step {index + 1}</div>
-                        <div className="howToCook">
+                        <div className='step'>Step {index + 1}</div>
+                        <div className='howToCook'>
                           {recipeDetail.howToCook[index + 1]}
                         </div>
                       </div>
