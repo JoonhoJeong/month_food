@@ -14,7 +14,7 @@
   margin: 0;
 }
 .mainBox .ImageBox h1 {
-  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-family: 'Noto Sans KR', 'Exo', Arial, sans-serif;
   font-weight: 700;
   font-size: 27px;
   line-height: 28px;
@@ -50,7 +50,7 @@
   margin: 0px 14px;
   padding-bottom: 8px;
   border-bottom: 2px solid #937062;
-  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-family: 'Noto Sans KR', 'Exo', Arial, sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
@@ -90,14 +90,14 @@
   padding: 40px 14px 0px;
 }
 .igroups .personNm {
-  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-family: 'Noto Sans KR', 'Exo', Arial, sans-serif;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.2px;
   border-bottom: 1px solid #e0e0e0;
 }
 .igroups .ginredientDetail {
-  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-family: 'Noto Sans KR', 'Exo', Arial, sans-serif;
   font-size: 14px;
   line-height: 25px;
   letter-spacing: -0.5px;
@@ -118,7 +118,7 @@
   margin: 0px 14px;
   padding-bottom: 8px;
   border-bottom: 2px solid #937062;
-  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-family: 'Noto Sans KR', 'Exo', Arial, sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
@@ -154,7 +154,7 @@
   max-height: 100%;
 }
 .step {
-  font-family: "Noto Serif KR", serif, "Exo", Arial;
+  font-family: 'Noto Serif KR', serif, 'Exo', Arial;
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
@@ -167,7 +167,7 @@
 .howToCook {
   margin: 0px 14px 10px 14px;
   color: #757575;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.5px;
@@ -176,6 +176,13 @@
 .stepBox {
   margin-top: 10px;
   margin-bottom: 50px;
+  padding-bottom: 5px;
+}
+.stepBoxSelected {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  padding-bottom: 5px;
+  box-shadow: 2px 1px 6px 3px #bbbbbb;
 }
 .nutritionGroup {
   display: grid;
@@ -195,7 +202,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 .title03 h1 {
-  font-family: "Noto Serif KR", serif;
+  font-family: 'Noto Serif KR', serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 28px;
@@ -203,7 +210,7 @@
   text-align: start;
 }
 .title03 h2 {
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.2px;
@@ -220,7 +227,7 @@
   list-style: none;
 }
 .text_Description02 {
-  font-family: "Noto Sans KR", "Exo", Arial, sans-serif;
+  font-family: 'Noto Sans KR', 'Exo', Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: -0.5px;
